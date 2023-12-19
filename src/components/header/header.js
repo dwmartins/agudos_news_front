@@ -2,6 +2,8 @@
 * Header
 */
 
+import CarouselHome from '../carouselHome/CarouselHome.vue';
+
 export default {
     data() {
       return {
@@ -11,6 +13,9 @@ export default {
     methods: {
       // methods
     },
+    components: {
+      CarouselHome
+    }
     // other component options
 };
   

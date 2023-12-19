@@ -83,24 +83,7 @@
             </div>
         </div>
     </nav>
-    <div class="container-fluid p-0">
-        <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
-            <div class="carousel-inner carousel_field position-absolute">
-                <div class="carousel-item active">
-                    <img src="../../assets//img-carousel/1.jpg" class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src="../../assets//img-carousel/2.jpg" class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src="../../assets//img-carousel/3.jpg" class="d-block w-100" alt="...">
-                </div>
-                <div class="shadow_img">
-                    
-                </div>
-            </div>
-        </div>
-    </div>
+    <CarouselHome></CarouselHome>
 </template>
   
 <script src="./header.js"></script>
