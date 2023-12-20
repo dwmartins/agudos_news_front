@@ -1,0 +1,7 @@
+.teste {
+    background-color: red;
+}
+
+:root {
+    --custom-input-box-shadow: 0px 0px 3px 0px rgba(116, 166, 240, 0.788);
+}

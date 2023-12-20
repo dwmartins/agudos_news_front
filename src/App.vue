@@ -1,14 +1,15 @@
 <template>
-  <AppHeader/>
+  <HomePage/>
 </template>
 
 <script>
-import AppHeader from './components/header/AppHeader.vue';
+import './assets/css/style.css';
+import HomePage from './components/HomePage/HomePage.vue';
 
 export default {
   name: 'App',
   components: {
-    AppHeader
+    HomePage
   }
 }
 </script>
