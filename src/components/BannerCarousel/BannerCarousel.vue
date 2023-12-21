@@ -5,7 +5,7 @@
 
                 <div v-if="!carouselImages.length">
                     <div class="carousel-item active">
-                        <img src="../../../assets/img-carousel/Default.png" class="d-block w-100" alt="...">
+                        <img src="../../assets/img/img-carousel/Default.png" class="d-block w-100" alt="...">
                     </div>
                 </div>
 
