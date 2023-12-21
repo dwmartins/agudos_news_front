@@ -28,7 +28,7 @@
 
                 <div class="shadow_img d-flex justify-content-center align-items-center">
                     <div class="mx-2">
-                        <h1 class="text-light text-center">Inicie sua busca aqui</h1>
+                        <h1 class="text-light text-center fw-bolder ">Inicie sua busca aqui</h1>
                         <h3 class="text-light text-center ">O que você está procurando?</h3>
 
                         <div class="container mt-5">

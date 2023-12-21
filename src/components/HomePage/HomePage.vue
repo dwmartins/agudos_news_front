@@ -2,6 +2,7 @@
     <section>
         <AppHeader/>
         <HomeCarousel/>
+        <ListingCategories/>
     </section>
 </template>
 
