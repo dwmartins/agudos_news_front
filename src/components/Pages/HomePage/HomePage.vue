@@ -3,6 +3,7 @@
         <AppHeader/>
         <BannerCarousel/>
         <ListingCategories/>
+        <AppFooter/>
     </section>
 </template>
 
@@ -10,12 +11,14 @@
 import AppHeader from '../../AppComponents/AppHeader/AppHeader.vue';
 import BannerCarousel from '../../AppComponents/BannerCarousel/BannerCarousel.vue';
 import ListingCategories from '../../AppComponents/ListingCategories/ListingCategories.vue';
+import AppFooter from "@/components/AppComponents/AppFooter/AppFooter.vue";
 
 export default {
     components: {
         AppHeader,
         BannerCarousel,
-        ListingCategories
+        ListingCategories,
+        AppFooter
     },
 
     data() {

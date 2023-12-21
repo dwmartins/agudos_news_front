@@ -48,6 +48,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">Blog</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contato</a>
+                    </li>
 
                     <hr>
                     <li class="nav-item logged_small">

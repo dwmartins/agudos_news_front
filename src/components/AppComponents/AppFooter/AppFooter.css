@@ -1,0 +1,9 @@
+.hr_social_media {
+    display: none;
+}
+
+@media screen and (max-width: 768px){
+    .hr_social_media {
+        display: block;
+    }
+}
