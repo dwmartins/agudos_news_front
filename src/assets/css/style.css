@@ -11,3 +11,8 @@
     /* Font colors */
     --custom-titles-black: #2D2E2F;
 }
+
+/* Helpers */
+.cursor_pointer {
+    cursor: pointer;
+}

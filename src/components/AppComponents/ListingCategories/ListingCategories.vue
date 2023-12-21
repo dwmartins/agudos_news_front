@@ -1,37 +1,17 @@
 <template>
-    <section>
+    <section class="my-5">
         <h2 class="custom_title fw-bolder text-center my-5 ">Categorias</h2>
 
-        <div class="container d-flex justify-content-center ">
-            <div class="row gap-4 bg-danger ">
-                <div class="col-sm-3 d-flex flex-column justify-content-center align-content-center p-4 bg-primary text-center">
-                    <i class="bi bi-scissors fs-1 "></i>
-                    <p>Beleza & Spas</p>
+        <div class="container">
+            <div class="row gap-5  justify-content-center p-2">
+                <div v-for="(category, index) in listCategory" :key="index" class="cursor_pointer col d-flex flex-column justify-content-center align-content-center p-4 border border-1 rounded-1 text-center category_item">
+                    <span class="material-symbols-outlined fs-1 mb-1">{{ category.icon }}</span>
+                    <p>{{ category.cat_name }}</p>
                 </div>
 
-                <div class="col-sm-3 d-flex flex-column justify-content-center align-content-center p-4 bg-primary text-center">
-                    <i class="bi bi-scissors fs-1"></i>
-                    <p>Beleza & Spas</p>
-                </div>
-
-                <div class="col-sm-3 d-flex flex-column justify-content-center align-content-center p-4 bg-primary text-center">
-                    <i class="bi bi-scissors fs-1"></i>
-                    <p>Beleza & Spas</p>
-                </div>
-
-                <div class="col-sm-3 d-flex flex-column justify-content-center align-content-center p-4 bg-primary text-center">
-                    <i class="bi bi-scissors fs-1"></i>
-                    <p>Beleza & Spas</p>
-                </div>
-
-                <div class="col-sm-3 d-flex flex-column justify-content-center align-content-center p-4 bg-primary text-center">
-                    <i class="bi bi-scissors fs-1"></i>
-                    <p>Beleza & Spas</p>
-                </div>
-
-                <div class="col-sm-3 d-flex flex-column justify-content-center align-content-center p-4 bg-primary text-center">
-                    <i class="bi bi-scissors fs-1"></i>
-                    <p>Beleza & Spas</p>
+                <div class="cursor_pointer col d-flex flex-column justify-content-center align-content-center p-4 border border-1 rounded-1 text-center category_item">
+                    <span class="material-symbols-outlined fs-1 mb-1">more_horiz</span>
+                    <p>Mais</p>
                 </div>
             </div>
         </div>
