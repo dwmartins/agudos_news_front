@@ -5,7 +5,7 @@
 
                 <div v-if="!carouselImages.length">
                     <div class="carousel-item active">
-                        <img src="../../assets/img-carousel/Default.png" class="d-block w-100" alt="...">
+                        <img src="../../../assets/img-carousel/Default.png" class="d-block w-100" alt="...">
                     </div>
                 </div>
 
@@ -48,6 +48,6 @@
     </div>
 </template>
   
-<script src="./HomeCarousel.js"></script>
-<style scoped src="./HomeCarousel.css"></style>
+<script src="./BannerCarousel.js"></script>
+<style scoped src="./BannerCarousel.css"></style>
   
