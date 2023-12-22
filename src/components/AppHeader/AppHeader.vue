@@ -16,20 +16,22 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
                     <!-- Logged -->
-                    <!-- <li class="nav-item logged_small">
-                        <i class="bi bi-person-fill me-1 "></i>
-                        <span>Douglas</span>
-                    </li>
-                    <hr>
-                    <li class="nav-item logged_small">
-                        <a class="nav-link" href="#">Painel</a>
-                    </li>
-                    <li class="nav-item logged_small">
-                        <a class="nav-link" href="#">Perfil</a>
-                    </li>
-                    <li class="nav-item logged_small">
-                        <a class="nav-link" href="#">Sair</a>
-                    </li> -->
+                    <div v-if="userLogged">
+                        <li class="nav-item logged_small">
+                            <i class="bi bi-person-fill me-1 "></i>
+                            <span>{{ userData.name }}</span>
+                        </li>
+                        <hr>
+                        <li class="nav-item logged_small">
+                            <a class="nav-link" href="#">Painel</a>
+                        </li>
+                        <li class="nav-item logged_small">
+                            <a class="nav-link" href="#">Perfil</a>
+                        </li>
+                        <li class="nav-item logged_small">
+                            <a @click="logout" class="nav-link cursor_pointer">Sair</a>
+                        </li>
+                    </div>
                     <!-- Logged -->
                     <hr>
 
@@ -77,38 +79,98 @@
 
                     <hr>
                     <!-- not logged in -->
-                    <router-link to="/" class="link_outline_none">
-                        <li class="nav-item logged_small">
-                            <a class="nav-link" href="#">Entrar</a>
-                        </li>
-                    </router-link>
+                    <li v-if="!userLogged" class="nav-item logged_small">
+                        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#modalLogin">Entrar</a>
+                    </li>
                     <!-- not logged in -->
 
                 </ul>
-                <!-- <div class="logged_large">
+                <div v-if="userLogged" class="logged_large">
                     <router-link to="/" class="btn btn-light btn-sm me-2 ps-0">
                         Anuncie aqui
                     </router-link>
-        
+
                     <div class="btn-group">
                         <button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-bs-toggle="dropdown"
                             aria-expanded="false">
-                            Douglas
+                            {{ userData.name }}
                         </button>
                         <ul class="dropdown-menu">
                             <router-link to="/" class="dropdown-item">Painel</router-link>
                             <router-link to="/" class="dropdown-item">Perfil</router-link>
-                            <router-link to="/" class="dropdown-item">Sair</router-link>
+                            <li @click="logout" class="dropdown-item cursor_pointer">Sair</li>
                         </ul>
                     </div>
-                </div> -->
-                <div class="flex-column logged_large">
+                </div>
+                <div v-if="!userLogged" class="flex-column logged_large">
                     <router-link to="/" class="btn btn-light btn-sm me-2">Anuncie aqui</router-link>
-                    <button class="btn btn-primary btn-sm fw-bold rounded-1">Entrar</button>
+                    <button type="button" class="btn btn-primary btn-sm fw-bold rounded-1" data-bs-toggle="modal"
+                        data-bs-target="#modalLogin">Entrar</button>
                 </div>
             </div>
         </div>
     </nav>
+
+    <div class="modal fade" ref="modalLogin" id="modalLogin" tabindex="-1" aria-labelledby="modalLogin" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content p-4">
+                <div class="modal-header">
+                    <nav>
+                        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                            <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab"
+                                data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home"
+                                aria-selected="true">Entrar</button>
+                            <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile"
+                                type="button" role="tab" aria-controls="nav-profile"
+                                aria-selected="false">Registrar</button>
+                        </div>
+                    </nav>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="tab-content" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"
+                            tabindex="0">
+                            <form class="row gap-3 needs-validation" novalidate>
+                                <div class="col-12">
+                                    <input v-model="loginData.email" type="email" class="custom_no_feedback form-control form-control-lg custom_focus" id="validationCustom01" placeholder="E-mail" required>
+                                    <div class="invalid-feedback">
+                                        Por favor digite seu e-mail.
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <input v-model="loginData.password" type="password" class="custom_no_feedback form-control form-control-lg custom_focus" id="validationCustom02" placeholder="Senha" required>
+                                    <div class="invalid-feedback">
+                                        Por favor digite sua senha.
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button @click="login" class="btn btn-primary w-100 fw-semibold fs-5 d-flex justify-content-center "><span v-if="!spinnerLoading">Entrar</span>
+                                        <div v-if="spinnerLoading" class="spinner-border text-light m-0" role="status"></div>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab"
+                            tabindex="0">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="liveToast" class="toast bg-opacity-75" :class="'text-bg-' + alertType" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body fs-6 fw-semibold z-3 ">
+                    {{ alertMsg }}
+                </div>
+                <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
 </template>
   
 <script src="./AppHeader.js"></script>

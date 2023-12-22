@@ -61,3 +61,12 @@
         opacity: 1;
     }
 }
+
+/* Inputs */
+.custom_focus:focus {
+    box-shadow: var(--custom-input-box-shadow);
+}
+
+.custom_no_feedback {
+    background-image: none !important;
+}
