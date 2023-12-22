@@ -12,8 +12,27 @@
 }
 
 @media screen and (max-width: 768px) {
-    .category_item {
+    .category_item, .category_item_all{
         min-width: 120px;
         max-width: 300px;
     } 
+}
+
+/* All categories */
+
+.category_item_all {
+    min-width: 240px;
+    max-width: 300px;
+}
+
+.img_notFound {
+    max-width: 330px;
+}
+
+.searchingCategory {
+    height: 300px;
+}
+
+.custom_search:focus {
+    box-shadow: var(--custom-input-box-shadow);
 }

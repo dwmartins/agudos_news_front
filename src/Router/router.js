@@ -3,8 +3,8 @@ import HomePage from '../views/HomePage.vue';
 import CategoryPage from '../views/CategoryPage.vue';
 
 const routes = [
-    {path: '/', component: HomePage},
-    {path: '/categorias', component: CategoryPage}
+    {path: '/', name: 'home', component: HomePage},
+    {path: '/categorias', name: 'categorias', component: CategoryPage}
 ];
 
 const router = createRouter({

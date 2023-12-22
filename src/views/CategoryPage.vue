@@ -1,23 +1,26 @@
 <template>
     <section>
         <AppHeader/>
-        <h1>CATEGORIAS</h1>
+        <ListingCategories type="all"/>
         <AppFooter/>
     </section>
 </template>
 
 <script>
 import AppHeader from '../components/AppHeader/AppHeader.vue';
+import ListingCategories from '@/components/ListingCategories/ListingCategories.vue';
 import AppFooter from '../components/AppFooter/AppFooter.vue';
 
 export default {
     components: {
         AppHeader,
+        ListingCategories,
         AppFooter
     },
 
     data() {
         return {
+            amout: null
         };
     },
     
@@ -25,7 +28,7 @@ export default {
     },
 
     mounted() {
-
+        window.scrollTo(0, 0);
     }
 };
 </script>

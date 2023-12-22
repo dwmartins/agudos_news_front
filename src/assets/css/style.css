@@ -2,7 +2,6 @@
 
 * {
     font-family: 'Poppins', sans-serif;
-    text-decoration: none !important;
 }
 
 :root {
@@ -42,4 +41,23 @@
 /* Helpers */
 .cursor_pointer {
     cursor: pointer;
+}
+
+.link_outline_none {
+    text-decoration: none;
+}
+
+/* Animations */
+.show-animation {
+    opacity: 0;
+    animation: fadeIn 0.8s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
