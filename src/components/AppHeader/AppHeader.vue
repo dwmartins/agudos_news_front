@@ -33,54 +33,77 @@
                     <!-- Logged -->
                     <hr>
 
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Anúncios</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Eventos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Vagas de emprego</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Blog</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contato</a>
-                    </li>
+                    <router-link to="/" class="link_outline_none">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#">Home</a>
+                        </li>
+                    </router-link>
+
+                    <router-link to="/" class="link_outline_none">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Anúncios</a>
+                        </li>
+                    </router-link>
+
+                    <router-link to="/" class="link_outline_none">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Eventos</a>
+                        </li>
+                    </router-link>
+
+                    <router-link to="/" class="link_outline_none">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Vagas de emprego</a>
+                        </li>
+                    </router-link>
+
+                    <router-link to="/" class="link_outline_none">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Blog</a>
+                        </li>
+                    </router-link>
+
+                    <router-link to="/" class="link_outline_none">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contato</a>
+                        </li>
+                    </router-link>
+                    <hr>
+                    <router-link to="/" class="link_outline_none">
+                        <li class="nav-item logged_small">
+                            <a class="nav-link" href="#">Anuncie Aqui</a>
+                        </li>
+                    </router-link>
 
                     <hr>
-                    <li class="nav-item logged_small">
-                        <a class="nav-link" href="#">Anuncie Aqui</a>
-                    </li>
-                    <hr>
-
                     <!-- not logged in -->
-                    <li class="nav-item logged_small">
-                        <a class="nav-link" href="#">Entrar</a>
-                    </li>
+                    <router-link to="/" class="link_outline_none">
+                        <li class="nav-item logged_small">
+                            <a class="nav-link" href="#">Entrar</a>
+                        </li>
+                    </router-link>
                     <!-- not logged in -->
 
                 </ul>
                 <!-- <div class="logged_large">
-                    <a href="#" class="btn btn-light btn-sm me-2 ps-0">Anuncie aqui</a>
+                    <router-link to="/" class="btn btn-light btn-sm me-2 ps-0">
+                        Anuncie aqui
+                    </router-link>
+        
                     <div class="btn-group">
                         <button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             Douglas
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Painel</a></li>
-                            <li><a class="dropdown-item" href="#">Perfil</a></li>
-                            <li><a class="dropdown-item" href="#">Sair</a></li>
+                            <router-link to="/" class="dropdown-item">Painel</router-link>
+                            <router-link to="/" class="dropdown-item">Perfil</router-link>
+                            <router-link to="/" class="dropdown-item">Sair</router-link>
                         </ul>
                     </div>
                 </div> -->
                 <div class="flex-column logged_large">
-                    <button class="btn btn-light btn-sm me-2">Anuncie aqui</button>
+                    <router-link to="/" class="btn btn-light btn-sm me-2">Anuncie aqui</router-link>
                     <button class="btn btn-primary btn-sm fw-bold rounded-1">Entrar</button>
                 </div>
             </div>
