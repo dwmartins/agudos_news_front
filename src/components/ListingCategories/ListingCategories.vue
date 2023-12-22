@@ -11,13 +11,11 @@
                     <p>{{ category.cat_name }}</p>
                 </router-link>
 
-                <div class="cursor_pointer col  border border-1 rounded-1 text-center category_item">
-                    <router-link to="/categorias"
-                        class="text-dark d-flex flex-column justify-content-center align-content-center p-4 link_outline_none">
-                        <span class="material-symbols-outlined fs-1 mb-1">more_horiz</span>
-                        Mais
-                    </router-link>
-                </div>
+                <router-link to="/categorias"
+                    class="link_outline_none text-dark col d-flex flex-column justify-content-center align-content-center p-4 border border-1 rounded-1 text-center category_item">
+                    <span class="material-symbols-outlined fs-1 mb-1">more_horiz</span>
+                    <p>Mais</p>
+                </router-link>
             </div>
         </div>
         <div v-if="type === 'all'" class="container">
