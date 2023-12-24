@@ -9,13 +9,16 @@
                     <form class="col-11 col-sm-11 col-md-7 col-lg-5 p-3 py-5 border rounded-1 newPasswordForm" novalidate>
                         <div class="mb-3">
                             <label for="newPassword" class="form-label">Por favor, digite seu e-mail.</label>
-                            <input v-model="email" type="email" class="form-control custom_focus custom_placeholder" id="newPassword" placeholder="Seu e-mail" required>
+                            <input v-model="emailData.email" type="email" class="form-control custom_focus custom_placeholder" id="newPassword" placeholder="Seu e-mail" required>
                             <div class="invalid-feedback">
                                 Por favor digite seu e-mail.
                             </div>
                         </div>
                         <div>
-                            <button @click="submitForm" class="btn btn-primary w-100 fw-semibold">Avançar</button>
+                            <button @click="submitForm" class="btn btn-primary w-100 fw-semibold">
+                                <span>Avançar</span>
+                                <div v-if="spinnerLoading" class="spinner-border text-light m-0" role="status"></div>
+                            </button>
                         </div>
                     </form>
                 </div>
@@ -31,7 +34,7 @@
                 </div>
             </div>
         </div>
-        <div class="modal fade" id="modalNewPassword" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div @click="redirectHome" class="modal fade" id="modalNewPassword" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -53,8 +56,11 @@
 
 <script>
 /* global bootstrap */
+import axios from "axios";
 import AppHeader from '../components/AppHeader/AppHeader.vue';
 import AppFooter from '../components/AppFooter/AppFooter.vue';
+
+const API_URL = process.env.VUE_APP_API_URL;
 
 export default {
     components: {
@@ -64,10 +70,13 @@ export default {
 
     data() {
         return {
-            email: '',
+            emailData: {
+                email: ''
+            },
             alertType: '',
             alertMsg: '',
-            alerts: ''
+            alerts: '',
+            spinnerLoading: false
         };
     },
 
@@ -78,12 +87,24 @@ export default {
     },
     
     methods: {
-        submitForm(e) {
+        async submitForm(e) {
             e.preventDefault()
             const validForm = this.validForm();
 
             if(validForm) {
-                this.modalNewPassword.show();
+                try {
+                    const user = await this.requestNewPassword();
+
+                    if(user.success) {
+                        return this.modalNewPassword.show();
+                    }
+
+                    if(user.alert) {
+                        return this.openAlert('warning', 'E-mail não encontrado');
+                    }
+                } catch (error) {
+                    return this.openAlert('danger', 'Falha ao buscar o e-mail');
+                }
             }
         },
 
@@ -100,6 +121,16 @@ export default {
             }
             
             return true;
+        },
+
+        async requestNewPassword() {
+            try {
+                const response = await axios.post(API_URL + '/usuario/nova-senha', this.emailData);
+                return response.data;
+            } catch (error) {
+                console.error(error);
+                throw new Error('Falha ao enviar a nova senha do usuário');
+            }
         },
 
         openAlert(type, msg) {
