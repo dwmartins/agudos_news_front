@@ -70,3 +70,7 @@
 .custom_no_feedback {
     background-image: none !important;
 }
+
+.custom_placeholder::placeholder {
+    color: #b1b1b1 !important;
+}
