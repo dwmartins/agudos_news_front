@@ -133,13 +133,13 @@
                             tabindex="0">
                             <form class="row gap-3 needs-validation" novalidate>
                                 <div class="col-12">
-                                    <input v-model="loginData.email" type="email" class="custom_no_feedback form-control form-control-lg custom_focus" id="validationCustom01" placeholder="E-mail" required>
+                                    <input v-model="loginData.email" type="email" class="custom_no_feedback form-control form-control-lg custom_focus custom_placeholder" id="validationCustom01" placeholder="E-mail" required>
                                     <div class="invalid-feedback">
                                         Por favor digite seu e-mail.
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <input v-model="loginData.password" type="password" class="custom_no_feedback form-control form-control-lg custom_focus" id="validationCustom02" placeholder="Senha" required>
+                                    <input v-model="loginData.password" type="password" class="custom_no_feedback form-control form-control-lg custom_focus custom_placeholder" id="validationCustom02" placeholder="Senha" required>
                                     <div class="invalid-feedback">
                                         Por favor digite sua senha.
                                     </div>
@@ -157,6 +157,46 @@
                             </form>
                         </div>
                         <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
+                            <form class="row gap-3 needs-validation-register" novalidate>
+                                <div class="col-12">
+                                    <label for="imagemInput" class="d-flex justify-content-center">
+                                        <img id="previewImage" class="img-fluid" v-if="registerData.photo_url" :src="registerData.photo_url" alt="Preview da Imagem" @click="openImageInput">
+                                        <div v-else class="placeholder z-3" @click="openImageInput">
+                                            <p class="text-dark">Selecionar imagem</p>
+                                        </div>
+                                    </label>
+                                    <input type="file" id="imagemInput" @change="previewImage" style="display: none;" accept="image/*">
+                                </div>
+                                <div class="col-12">
+                                    <input v-model="registerData.name" id="register_name" type="text" class="custom_no_feedback form-control form-control-lg custom_focus custom_placeholder" placeholder="Nome" required>
+                                    <div class="invalid-feedback">
+                                        Por favor digite seu nome.
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <input v-model="registerData.lastName" id="register_lastName" type="text" class="custom_no_feedback form-control form-control-lg custom_focus custom_placeholder" placeholder="Sobrenome" required>
+                                    <div class="invalid-feedback">
+                                        Por favor digite seu Sobrenome.
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <input v-model="registerData.email" id="register_email" type="email" class="custom_no_feedback form-control form-control-lg custom_focus custom_placeholder" placeholder="e-mail" required>
+                                    <div class="invalid-feedback">
+                                        Por favor digite seu e-mail.
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <input v-model="registerData.password" id="register_password" type="password" class="custom_no_feedback form-control form-control-lg custom_focus custom_placeholder" placeholder="Senha" required>
+                                    <div class="invalid-feedback">
+                                        Por favor digite sua senha.
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button @click="register" class="btn btn-primary w-100 fs-5 d-flex justify-content-center "><span v-if="!spinnerLoading">Cadastre-se</span>
+                                        <div v-if="spinnerLoading" class="spinner-border text-light m-0" role="status"></div>
+                                    </button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
