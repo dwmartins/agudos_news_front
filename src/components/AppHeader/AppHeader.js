@@ -112,6 +112,11 @@ export default {
             setTimeout(() => {
                 this.alerts.show();
             }, 500);
+        },
+
+        redirectNewPassword() {
+            this.modalLogin.hide();
+            this.$router.push('/nova-senha');
         }
     }
 

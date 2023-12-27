@@ -113,7 +113,7 @@
 
     <div class="modal fade" ref="modalLogin" id="modalLogin" tabindex="-1" aria-labelledby="modalLogin" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content p-4">
+            <div class="modal-content p-1 p-sm-4 ">
                 <div class="modal-header">
                     <nav>
                         <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -149,11 +149,14 @@
                                         <div v-if="spinnerLoading" class="spinner-border text-light m-0" role="status"></div>
                                     </button>
                                 </div>
+                                <div class="col-12">
+                                    <p @click="redirectNewPassword" class="link_outline_none cursor_pointer text-primary ">
+                                        Esqueceu a sua senha?
+                                    </p> 
+                                </div>
                             </form>
                         </div>
-                        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab"
-                            tabindex="0">
-
+                        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
                         </div>
                     </div>
                 </div>
