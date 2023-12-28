@@ -112,6 +112,7 @@ export default {
             localStorage.removeItem('userData');
             this.userLogged = false;
             this.openAlert('success', 'Você foi desconectado. Sinta-se à vontade para retornar quando quiser!');
+            this.$router.push('/');
         },
 
         openAlert(type, msg) {

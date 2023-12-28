@@ -26,7 +26,9 @@
                             <a class="nav-link" href="#">Painel</a>
                         </li>
                         <li class="nav-item logged_small">
-                            <a class="nav-link" href="#">Perfil</a>
+                            <router-link class="nav-link" :to="'/perfil/' + userData.id">
+                                Perfil
+                            </router-link>
                         </li>
                         <li class="nav-item logged_small">
                             <a @click="logout" class="nav-link cursor_pointer">Sair</a>
@@ -97,7 +99,7 @@
                         </button>
                         <ul class="dropdown-menu">
                             <router-link to="/" class="dropdown-item">Painel</router-link>
-                            <router-link to="/" class="dropdown-item">Perfil</router-link>
+                            <router-link :to="'/perfil/' + userData.id" class="dropdown-item">Perfil</router-link>
                             <li @click="logout" class="dropdown-item cursor_pointer">Sair</li>
                         </ul>
                     </div>
